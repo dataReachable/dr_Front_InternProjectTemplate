@@ -6,10 +6,13 @@
  */
 import { combineReducers } from 'redux';
 
+import TodoListReducer from './TodoList/reducer'
 // import demoReducer from './moduleA/reducer';
 
 // combine all the reducer in here
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+    TodoListReducer,
+});
 // export the root reducer state
 export type RootState = ReturnType<typeof rootReducer>;
 export default rootReducer;
