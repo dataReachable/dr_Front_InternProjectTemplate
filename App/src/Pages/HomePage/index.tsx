@@ -13,6 +13,7 @@ import InputTodoListItem from './Components/InputTodoListItem';
 import ButtonCreateTodoListItem from './Components/ButtonCreateTodoListItem';
 import ButtonDeleteTodoListItem from './Components/ButtonDeleteTodoListItem';
 import ListShowTodoListItems from './Components/ListShowTodoListItems';
+
 /* <------------------------------------ **** DEPENDENCE IMPORT END **** ------------------------------------ */
 /* <------------------------------------ **** INTERFACE START **** ------------------------------------ */
 /** This section will include all the interface for this tsx file */
@@ -32,12 +33,12 @@ const HomePage = (): JSX.Element => {
         <>
             {/* <Row>this is the test project</Row> */}
             <Row>
-                <Col span={4} offset={8}><InputTodoListItem/></Col>
-                <Col span={2}><ButtonCreateTodoListItem /></Col>
-                <Col span={2}><ButtonDeleteTodoListItem /></Col>
+                <Col span={16}><InputTodoListItem/></Col>
+                <Col span={4}><ButtonCreateTodoListItem /></Col>
+                <Col span={4}><ButtonDeleteTodoListItem /></Col>
             </Row>
             <Row>
-                <Col span={16} offset={4}><ListShowTodoListItems /></Col>
+                <Col><ListShowTodoListItems /></Col>
             </Row>
         </>
     );

@@ -30,50 +30,7 @@ const UlShowTodoListItems = ():JSX.Element => {
      * 获取 dispatch 方法
      */
     const dispatch = useDispatch();
-    // /**
-    //  * 将每一个 item 字符串映射为一个 li 元素
-    //  * @constant
-    //  * @type {Array}
-    //  */
-    // const toDoList = toDoListState.items.map((item, index) => {
-    //     if (toDoListState.selected === index && toDoListState.editable) {
-    //         return (
-    //             <li 
-    //                 key={item} 
-    //                 tabIndex={0}
-    //                 className={style.item}
-    //             >
-    //                 <Input 
-    //                     type="text" 
-    //                     value={item}
-    //                     onBlur={() => dispatch(actions.toggleEditableAction())}
-    //                     autoFocus
-    //                     onChange={(event) => dispatch(actions.itemValueChangeAction(event.target.value))}
-    //                     spellCheck={false}
-    //                 />
-    //             </li>
-    //         );
-    //     } else {
-    //         return (
-    //             <li 
-    //                 key={item} 
-    //                 tabIndex={0}
-    //                 data-index={index}
-    //                 onFocus={event => dispatch(actions.selectedNewItemAction(Number(event.target.dataset.index)))}
-    //                 className={style.item}
-    //                 onDoubleClick={() => dispatch(actions.toggleEditableAction())}
-    //             >
-    //                 {item}
-    //             </li>
-    //         )
-    //     }
-    // });
     
-    // return (
-    //     <ul>
-    //         {toDoList}
-    //     </ul>
-    // );
     return <List
                 bordered
                 dataSource={toDoListState.items}
@@ -88,6 +45,7 @@ const UlShowTodoListItems = ():JSX.Element => {
                                 <Input 
                                     type="text" 
                                     value={item}
+                                    data-value={item}
                                     onBlur={() => dispatch(actions.toggleEditableAction())}
                                     autoFocus
                                     onChange={(event) => dispatch(actions.itemValueChangeAction(event.target.value))}

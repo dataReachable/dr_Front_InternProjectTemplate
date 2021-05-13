@@ -18,7 +18,7 @@ const initialState: types.TodoListReducer = {
     selected: 0,
     items: [
         '1. 输入框点击 Enter 可以快速创建 Item',
-        '2. 如果没有选中 Item，则总是删除第一个',
+        '2. 如果没有选中 Item，则总是删除第一个，因为越晚添加的todo越晚做',
         '3. 双击一个 Item， 可以修改该 Item 的值'
     ],
     editable: false,

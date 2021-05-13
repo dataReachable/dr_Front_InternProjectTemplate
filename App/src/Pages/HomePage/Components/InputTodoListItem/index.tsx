@@ -29,7 +29,7 @@ const InputTodoListItem = (): JSX.Element => {
      */
     const dispatch = useDispatch();
     return (
-        <Input 
+        <Input
             type="text"
             placeholder="Add new todo"
             value={toDoListState.inputText} 
