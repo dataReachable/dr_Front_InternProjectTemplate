@@ -64,7 +64,7 @@ const TdInput = (): JSX.Element => {
     };
     /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
     return (
-        <Row justify="center" align="middle">
+        <Row type="flex" gutter={[10, 10]} justify="center" align="middle">
             <Col span={6}>
                 <Input ref={inputRef} placeholder="请输入代办事项..." />
             </Col>

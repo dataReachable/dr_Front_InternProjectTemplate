@@ -56,7 +56,14 @@ const TdItem: FC<PropTypes> = ({ todo }): JSX.Element => {
                 <Col span={1}>
                     <Radio checked={todo.completed} />
                 </Col>
-                <Col span={6}>
+                <Col
+                    span={7}
+                    style={{ textAlign: 'center' }}
+                    onDoubleClick={() => {
+                        setVal(todo.content);
+                        setUpdate(!update);
+                    }}
+                >
                     <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
                         {todo.content}
                     </span>
@@ -72,7 +79,7 @@ const TdItem: FC<PropTypes> = ({ todo }): JSX.Element => {
     function showChangeItem() {
         return (
             <Fragment>
-                <Col span={7}>
+                <Col span={8}>
                     <Input ref={inputRef} value={val} onChange={(e) => setVal(e.target.value)} />
                 </Col>
                 <Col span={2}>
@@ -86,12 +93,12 @@ const TdItem: FC<PropTypes> = ({ todo }): JSX.Element => {
     /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
     return (
         <Row
+            type="flex"
+            align="middle"
+            gutter={[10, 10]}
             justify="center"
             onClick={() => {
                 changeTodoComplete(todo.id);
-            }}
-            onDoubleClick={() => {
-                setUpdate(!update);
             }}
         >
             {update ? showChangeItem() : showNormalItem()}
