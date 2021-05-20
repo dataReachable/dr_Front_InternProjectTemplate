@@ -5,6 +5,7 @@ const initialState: types.TodoListReducer = {
 };
 
 export default (state = initialState, action: types.TodoListActionType): types.TodoListReducer => {
+    let obj: types.TodoType;
     switch (action.type) {
         case types.ACTION_TYPES.ADD_TODO_ITEM:
             return {
@@ -27,6 +28,12 @@ export default (state = initialState, action: types.TodoListActionType): types.T
                           }
                         : todo,
                 ),
+            };
+        case types.ACTION_TYPES.CHANGE_TODO_CONTENT:
+            obj = action.payload as types.TodoType;
+            return {
+                ...state,
+                todoList: state.todoList.map((todo) => (todo.id === obj.id ? obj : todo)),
             };
         default:
             return state;

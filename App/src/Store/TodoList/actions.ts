@@ -30,5 +30,17 @@ const changeTodoCompleteAction = (id: number): types.TodoListActionTypes => ({
     type: types.ACTION_TYPES.CHANGE_TODO_COMPLETE,
     payload: id,
 });
-
-export { addTodoItemAction, removeTodoItemsAction, changeTodoCompleteAction };
+/**
+ * This action will change a item and will change the todolist
+ * @param {number} id  change the item's completed by id
+ */
+const changeTodoContentAction = (todo: types.TodoType): types.TodoListActionTypes => ({
+    type: types.ACTION_TYPES.CHANGE_TODO_CONTENT,
+    payload: todo,
+});
+export {
+    addTodoItemAction,
+    removeTodoItemsAction,
+    changeTodoCompleteAction,
+    changeTodoContentAction,
+};
