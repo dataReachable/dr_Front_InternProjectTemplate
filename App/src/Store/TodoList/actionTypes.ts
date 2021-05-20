@@ -1,3 +1,5 @@
+import { types } from '@babel/core';
+
 /**
  * 该接口描述了该数据的数据结构
  * @param {number} id 数据的id,当前时间的毫秒数
@@ -26,6 +28,8 @@ interface TodoListReducer {
     todoList: Array<TodoType>;
 }
 export type { TodoType, TodoListReducer, TodoListActionType };
+
+export type TodoListActionTypes = TodoType | TodoListReducer | TodoListActionType;
 
 export enum ACTION_TYPES {
     ADD_TODO_ITEM = 'ADD_TODO_ITEM',

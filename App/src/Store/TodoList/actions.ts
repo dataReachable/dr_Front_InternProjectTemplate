@@ -10,7 +10,7 @@ import * as types from './actionTypes';
  * This action will add a new item and will change the todolist
  * @param {TodoType} todo a new item
  */
-const addTodoItemAction = (todo: types.TodoType): types.TodoListActionType => ({
+const addTodoItemAction = (todo: types.TodoType): types.TodoListActionTypes => ({
     type: types.ACTION_TYPES.ADD_TODO_ITEM,
     payload: todo,
 });
@@ -18,7 +18,7 @@ const addTodoItemAction = (todo: types.TodoType): types.TodoListActionType => ({
  * This action will remove a item and will change the todolist
  * @param {number} id item delete by id
  */
-const removeTodoItemsAction = (id: number): types.TodoListActionType => ({
+const removeTodoItemsAction = (id: number): types.TodoListActionTypes => ({
     type: types.ACTION_TYPES.REMOVE_TODO_ITEMS,
     payload: id,
 });
@@ -26,7 +26,7 @@ const removeTodoItemsAction = (id: number): types.TodoListActionType => ({
  * This action will change a item and will change the todolist
  * @param {number} id  change the item's completed by id
  */
-const changeTodoCompleteAction = (id: number): types.TodoListActionType => ({
+const changeTodoCompleteAction = (id: number): types.TodoListActionTypes => ({
     type: types.ACTION_TYPES.CHANGE_TODO_COMPLETE,
     payload: id,
 });
