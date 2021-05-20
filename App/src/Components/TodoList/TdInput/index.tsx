@@ -11,6 +11,7 @@ import { Row, Col, Input, Button, notification } from 'antd';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import * as types from '../../../Store/TodoList/actionTypes';
 import * as actions from '../../../Store/TodoList/actions';
+import { RootState } from '../../../Store/rootReducer';
 /* <------------------------------------ **** DEPENDENCE IMPORT END **** ------------------------------------ */
 /* <------------------------------------ **** INTERFACE START **** ------------------------------------ */
 /** This section will include all the interface for this tsx file */
@@ -22,8 +23,8 @@ const TdInput = (): JSX.Element => {
     /* <------------------------------------ **** STATE END **** ------------------------------------ */
     const inputRef = useRef<Input>(null);
     const dispatch = useDispatch();
-    const { todoList } = useSelector((store) => {
-        const todoListReducer: types.TodoListReducer = store['todoListReducer'];
+    const { todoList } = useSelector((state: RootState) => {
+        const todoListReducer: types.TodoListReducer = state['todoListReducer'];
         return {
             todoList: todoListReducer.todoList,
         };
