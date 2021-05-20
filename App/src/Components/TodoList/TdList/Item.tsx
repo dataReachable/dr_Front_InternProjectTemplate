@@ -30,7 +30,6 @@ const TdItem: FC<PropTypes> = ({ todo }): JSX.Element => {
     /* <------------------------------------ **** FUNCTION START **** ------------------------------------ */
     /************* This section will include this component general function *************/
     function changeTodoComplete(id: number) {
-        console.log(id);
         dispatch(actions.changeTodoCompleteAction(id));
     }
     function removeTodoItem(id: number) {
