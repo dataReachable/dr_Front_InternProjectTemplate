@@ -18,7 +18,7 @@ const addTodoItemAction = (todo: types.TodoType): types.TodoListActionTypes => (
  * This action will remove a item and will change the todolist
  * @param {number} id item delete by id
  */
-const removeTodoItemsAction = (id: number): types.TodoListActionTypes => ({
+const removeTodoItemsAction = (id: number): types.TodoListActionType => ({
     type: types.ACTION_TYPES.REMOVE_TODO_ITEMS,
     payload: id,
 });
@@ -38,9 +38,20 @@ const changeTodoContentAction = (todo: types.TodoType): types.TodoListActionType
     type: types.ACTION_TYPES.CHANGE_TODO_CONTENT,
     payload: todo,
 });
+
+/**
+ * 延迟两秒删除一个待办项
+ * @param id 要延迟2秒删除的待办项id
+ */
+const removeTodoItemsAsync = (id: number): types.TodoListActionTypes => ({
+    type: types.ACTION_TYPES.REMOVE_TODO_ITEMS_ASYNC,
+    payload: id,
+});
+
 export {
     addTodoItemAction,
     removeTodoItemsAction,
     changeTodoCompleteAction,
     changeTodoContentAction,
+    removeTodoItemsAsync,
 };

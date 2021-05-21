@@ -19,6 +19,15 @@ interface TodoListActionType {
     payload: TodoType | Array<TodoType> | number;
 }
 /**
+ * 该接口描述actions中数据的数据结构
+ * @param {Array<TodoType>} type 提交数据的action类型
+ * @param {TodoType | Array<TodoType> | number} payload 需要提交的数据
+ */
+interface TodoListActionType {
+    type: ACTION_TYPES;
+    payload: TodoType | Array<TodoType> | number;
+}
+/**
  * 该文件是TodoList reducer文件
  * @param {Array<TodoType>} todoList todolist的结构
  */
@@ -35,4 +44,5 @@ export enum ACTION_TYPES {
     REMOVE_TODO_ITEMS = 'REMOVE_TODO_ITEMS',
     CHANGE_TODO_COMPLETE = 'CHANGE_TODO_COMPLETE',
     CHANGE_TODO_CONTENT = 'CHANGE_TODO_CONTENT',
+    REMOVE_TODO_ITEMS_ASYNC = 'REMOVE_TODO_ITEMS_ASYNC',
 }

@@ -73,7 +73,7 @@ const TdInput: FC = (): JSX.Element => {
                         completed: false,
                     }),
                 );
-                inputRef.current!.setValue('');
+                inputRef.current?.setValue('');
             } else {
                 notification['error']({
                     message: '代办项冲突',
@@ -93,7 +93,7 @@ const TdInput: FC = (): JSX.Element => {
     const removeTodoItems = (): void => {
         todoList.forEach((todo) => {
             if (todo.completed) {
-                dispatch(actions.removeTodoItemsAction(todo.id));
+                dispatch(actions.removeTodoItemsAsync(todo.id));
             }
         });
     };
@@ -174,7 +174,7 @@ const TdItem: FC<IdItemPropTypes> = ({ todo }): JSX.Element => {
      * @param {number} id 待办项的唯一id
      */
     const removeTodoItem = (id: number): void => {
-        dispatch(actions.removeTodoItemsAction(id));
+        dispatch(actions.removeTodoItemsAsync(id));
     };
     /**
      * 更改待办项的内容
@@ -182,11 +182,12 @@ const TdItem: FC<IdItemPropTypes> = ({ todo }): JSX.Element => {
      * @param {string} val 更改后的待办项内容
      */
     const changeTodoItemCotent = (id: number, val: string): void => {
-        if (val.trim().length) {
+        const cnt: string = val.trim();
+        if (cnt.length) {
             dispatch(
                 actions.changeTodoContentAction({
                     id: id,
-                    content: val.trim(),
+                    content: cnt,
                     completed: todo.completed,
                 }),
             );
