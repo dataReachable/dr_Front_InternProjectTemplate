@@ -6,8 +6,8 @@
  */
 /* <------------------------------------ **** DEPENDENCE IMPORT START **** ------------------------------------ */
 /** This section will include all the necessary dependence for this tsx file */
-import React, { Fragment } from 'react';
-import { TodoList } from '../../Components';
+import React from 'react';
+import TodoList from './Components/TodoList';
 /* <------------------------------------ **** DEPENDENCE IMPORT END **** ------------------------------------ */
 /* <------------------------------------ **** INTERFACE START **** ------------------------------------ */
 /** This section will include all the interface for this tsx file */
@@ -27,11 +27,7 @@ const HomePage = (): JSX.Element => {
     /************* This section will include this component general function *************/
 
     /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
-    return (
-        <Fragment>
-            <TodoList />
-        </Fragment>
-    );
+    return <TodoList />;
 };
 export default HomePage;
 /* <------------------------------------ **** FUNCTION COMPONENT END **** ------------------------------------ */
