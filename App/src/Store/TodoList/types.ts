@@ -11,9 +11,10 @@
  * @param {string} REMOVE 删除操作
  * @param {string} UPDATE 更新操作
  */
-export enum ACTION_TYPE {
+enum ACTION_TYPE {
     ADD = 'ADD',
     REMOVE = 'REMOVE',
+    REMOVE_ASYNC = 'UPDATE',
     UPDATE = 'UPDATE',
 }
 
@@ -28,21 +29,43 @@ interface ITodoType {
     text: string;
 }
 
-/**
- * 最抽象的 action
- * @param {any} payload 数据
- */
-interface IActionType {
-    type: ACTION_TYPE;
-    payload: any;
+interface IAddActionType {
+    type: ACTION_TYPE.ADD;
+    payload: {
+        data: ITodoType;
+    };
 }
 
-/**
- * 用于操作 todo 的 action，继承了 IAction
- * @param {ITodoType} payload todo，待办事项的数据
- */
-interface ITodoActionType extends IActionType {
-    payload: ITodoType;
+interface IRemoveActionType {
+    type: ACTION_TYPE.REMOVE;
+    payload: {
+        id: number;
+    };
 }
 
-export type { IActionType, ITodoActionType, ITodoType };
+interface IRemoveActionAsyncType {
+    type: ACTION_TYPE.REMOVE_ASYNC;
+    payload: {
+        id: number;
+    };
+}
+
+interface IUpdateActionType {
+    type: ACTION_TYPE.UPDATE;
+    payload: {
+        data: ITodoType;
+    };
+}
+
+type IActionType = IAddActionType | IRemoveActionType | IRemoveActionAsyncType | IUpdateActionType;
+
+export { ACTION_TYPE as TODO_ACTION_TYPE };
+
+export type {
+    ITodoType,
+    IActionType,
+    IAddActionType,
+    IRemoveActionType,
+    IRemoveActionAsyncType,
+    IUpdateActionType,
+};

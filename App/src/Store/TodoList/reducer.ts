@@ -55,24 +55,24 @@ const initState: types.ITodoType[] = [
  */
 const reducer = (
     state: types.ITodoType[] = initState,
-    action: types.ITodoActionType,
+    action: types.IActionType,
 ): types.ITodoType[] => {
     switch (action.type) {
-        case types.ACTION_TYPE.ADD: {
+        case types.TODO_ACTION_TYPE.ADD: {
             // 给 ITodoActionType 添加 id，id 值为数组中 id 最大数 + 1
             const ids = state.length !== 0 ? state.map((val) => val.id) : [-1, 0];
             action.payload.id = Math.max(...ids) + 1;
 
             return [...state, action.payload];
         }
-        case types.ACTION_TYPE.REMOVE: {
+        case types.TODO_ACTION_TYPE.REMOVE: {
             const index = state.findIndex((value) => value.id === action.payload.id);
             if (index != -1) {
                 state.splice(index, 1);
             }
             return [...state];
         }
-        case types.ACTION_TYPE.UPDATE: {
+        case types.TODO_ACTION_TYPE.UPDATE: {
             const todo = action.payload;
             state.forEach((value) => {
                 if (value.id === todo.id) {

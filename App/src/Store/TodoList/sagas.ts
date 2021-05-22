@@ -19,7 +19,7 @@ function* removeSaga(todo: types.ITodoType) {
         }, 1000);
     });
     yield put<types.ITodoActionType>({
-        type: types.ACTION_TYPE.REMOVE,
+        type: types.TODO_ACTION_TYPE.REMOVE,
         payload: res,
     });
 }
@@ -30,7 +30,10 @@ function* removeSaga(todo: types.ITodoType) {
  */
 function* watchRemoveSaga() {
     console.log('watch remove saga');
-    yield takeEvery(types.ACTION_TYPE.REMOVE as unknown as TakeableChannel<unknown>, removeSaga);
+    yield takeEvery(
+        types.TODO_ACTION_TYPE.REMOVE as unknown as TakeableChannel<unknown>,
+        removeSaga,
+    );
 }
 
 const TodoListSaga = [fork(watchRemoveSaga)];
