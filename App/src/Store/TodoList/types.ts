@@ -5,6 +5,8 @@
  * @lastModify lidaoping 2021-05-21
  */
 
+import { Action } from 'redux';
+
 /**
  * 用于判断对 todo 执行操作的类型
  * @param {string} ADD 增加操作
@@ -14,7 +16,7 @@
 enum ACTION_TYPE {
     ADD = 'ADD',
     REMOVE = 'REMOVE',
-    REMOVE_ASYNC = 'UPDATE',
+    REMOVE_ASYNC = 'REMOVE_ASYNC',
     UPDATE = 'UPDATE',
 }
 
@@ -29,29 +31,25 @@ interface ITodoType {
     text: string;
 }
 
-interface IAddActionType {
-    type: ACTION_TYPE.ADD;
+interface IAddActionType extends Action<ACTION_TYPE.ADD> {
     payload: {
         data: ITodoType;
     };
 }
 
-interface IRemoveActionType {
-    type: ACTION_TYPE.REMOVE;
+interface IRemoveActionType extends Action<ACTION_TYPE.REMOVE> {
     payload: {
         id: number;
     };
 }
 
-interface IRemoveActionAsyncType {
-    type: ACTION_TYPE.REMOVE_ASYNC;
+interface IRemoveActionAsyncType extends Action<ACTION_TYPE.REMOVE_ASYNC> {
     payload: {
-        id: number;
+        removeAsync: Promise<number>;
     };
 }
 
-interface IUpdateActionType {
-    type: ACTION_TYPE.UPDATE;
+interface IUpdateActionType extends Action<ACTION_TYPE.UPDATE> {
     payload: {
         data: ITodoType;
     };

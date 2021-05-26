@@ -61,11 +61,12 @@ const reducer = (
         case types.TODO_ACTION_TYPE.ADD: {
             // 给 ITodoActionType 添加 id，id 值为数组中 id 最大数 + 1
             const ids = state.length !== 0 ? state.map((val) => val.id) : [-1, 0];
-            action.payload.id = Math.max(...ids) + 1;
+            action.payload.data.id = Math.max(...ids) + 1;
 
-            return [...state, action.payload];
+            return [...state, action.payload.data];
         }
         case types.TODO_ACTION_TYPE.REMOVE: {
+            console.log('REMOVE', action);
             const index = state.findIndex((value) => value.id === action.payload.id);
             if (index != -1) {
                 state.splice(index, 1);
@@ -75,13 +76,14 @@ const reducer = (
         case types.TODO_ACTION_TYPE.UPDATE: {
             const todo = action.payload;
             state.forEach((value) => {
-                if (value.id === todo.id) {
-                    value.text = todo.text;
+                if (value.id === todo.data.id) {
+                    value.text = todo.data.text;
                 }
             });
             return [...state];
         }
         default: {
+            console.log('default');
             return state;
         }
     }

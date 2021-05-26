@@ -12,7 +12,12 @@ import EditItem from './Components/EditItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store/rootReducer';
 import * as types from '../../Store/TodoList/types';
-import { addAction, removeAction, updateAction } from '../../Store/TodoList/actions';
+import {
+    addAction,
+    removeAction,
+    removeActionAsync,
+    updateAction,
+} from '../../Store/TodoList/actions';
 import './style.scss';
 /* <------------------------------------ **** DEPENDENCE IMPORT END **** ------------------------------------ */
 /* <------------------------------------ **** INTERFACE START **** ------------------------------------ */
@@ -53,13 +58,13 @@ const HomePage = (): JSX.Element => {
      * 添加输入框文本改变时触发，将输入框的 value 赋值给 addInputText
      * @param {React.ChangeEvent<HTMLInputElement>} e input 中 value 改变的监听事件
      */
-    const addInputChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) =>
+    const handleAddInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
         setAddInputText(e.target.value);
 
     /**
      * 添加按钮的监听事件
      */
-    const addButtonHandle = () => {
+    const handleAddButton = () => {
         // 如果输入框内容为空，则提示用户输入内容
         if (addInputText.trim() === '') {
             message.warn('请输入内容 !').then(
@@ -83,7 +88,7 @@ const HomePage = (): JSX.Element => {
      * 删除按钮的监听事件
      * 发送 删除 action
      */
-    const removeButtonHandle = () => {
+    const handleRemoveButton = () => {
         if (selectedIndex === -1) {
             message.warn('请先选择其中一项 !').then(
                 (val) => console.log('val ==', val),
@@ -91,7 +96,8 @@ const HomePage = (): JSX.Element => {
             );
             return;
         }
-        dispatch(removeAction(state[selectedIndex]));
+        // dispatch(removeAction(state[selectedIndex].id));
+        dispatch(removeActionAsync(state[selectedIndex].id));
     };
 
     /**
@@ -107,16 +113,16 @@ const HomePage = (): JSX.Element => {
      * @param data input 失去焦点或 Enter 修改后的数据
      * @param index 修改数据的下标
      */
-    const editHandle = (data: types.ITodoType, index: number) => dispatch(updateAction(data));
+    const handleEdit = (data: types.ITodoType, index: number) => dispatch(updateAction(data));
     /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
     return (
         <div>
             <Row type="flex" justify="center" gutter={[0, 20]}>
                 <Col span={8}>
-                    <Input onChange={(e) => addInputChangeHandle(e)} value={addInputText}></Input>
+                    <Input onChange={(e) => handleAddInputChange(e)} value={addInputText}></Input>
                 </Col>
                 <Col span={2}>
-                    <Button type="primary" block={true} onClick={() => addButtonHandle()}>
+                    <Button type="primary" block={true} onClick={() => handleAddButton()}>
                         创建
                     </Button>
                 </Col>
@@ -125,7 +131,7 @@ const HomePage = (): JSX.Element => {
                         type="danger"
                         disabled={state.length === 0}
                         block={true}
-                        onClick={() => removeButtonHandle()}
+                        onClick={() => handleRemoveButton()}
                     >
                         删除
                     </Button>
@@ -146,7 +152,7 @@ const HomePage = (): JSX.Element => {
                                     data={item}
                                     index={index}
                                     defaultValue={item.text}
-                                    onEdited={editHandle}
+                                    onEdited={handleEdit}
                                 />
                             </List.Item>
                         )}

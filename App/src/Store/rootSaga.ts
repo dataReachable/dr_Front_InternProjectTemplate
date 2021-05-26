@@ -11,11 +11,6 @@ export default function* rootSaga(): Generator {
     try {
         yield all([
             ...TodoListSaga,
-            // TodoListSaga.watchRemoveSaga({
-            //     id: 1,
-            //     text: '',
-            // }),
-            // this is where the saga combine into the rootSaga
         ]);
     } catch (err) {
         // This is where error monitoring should go
