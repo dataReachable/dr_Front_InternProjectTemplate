@@ -6,9 +6,9 @@
  */
 /* <------------------------------------ **** CONSTANT IMPORT START **** ------------------------------------ */
 /** Import all the reference constant after this line */
-@import '../../Constant/breakPoint.scss';
-@import '../../Constant/font.scss';
-@import '../../Constant/color.scss';
+@import '../../../../Constant/breakPoint.scss';
+@import '../../../../Constant/font.scss';
+@import '../../../../Constant/color.scss';
 /* <------------------------------------ **** CONSTANT IMPORT END **** ------------------------------------ */
 /* <------------------------------------ **** SECTION1 MIXIN START **** ------------------------------------ */
 /** The demo mixin is ..........*/
@@ -16,8 +16,4 @@
 }
 /* <------------------------------------ **** SECTION1 MIXIN END **** ------------------------------------ */
 /* <--------------------------- * SECTION1 * --------------------------- */
-
-.editItem_select {
-    background-color: $gray;
-}
 /* <--------------------------- * SECTION1 * --------------------------- */
