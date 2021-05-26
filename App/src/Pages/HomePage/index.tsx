@@ -12,13 +12,8 @@ import EditItem from './Components/EditItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store/rootReducer';
 import * as types from '../../Store/TodoList/types';
-import {
-    addAction,
-    removeAction,
-    removeActionAsync,
-    updateAction,
-} from '../../Store/TodoList/actions';
-import './style.scss';
+import { addAction, removeActionAsync, updateAction } from '../../Store/TodoList/actions';
+import style from './style.scss';
 /* <------------------------------------ **** DEPENDENCE IMPORT END **** ------------------------------------ */
 /* <------------------------------------ **** INTERFACE START **** ------------------------------------ */
 /** This section will include all the interface for this tsx file */
@@ -113,7 +108,7 @@ const HomePage = (): JSX.Element => {
      * @param data input 失去焦点或 Enter 修改后的数据
      * @param index 修改数据的下标
      */
-    const handleEdit = (data: types.ITodoType, index: number) => dispatch(updateAction(data));
+    const handleEdit = (data: types.ITodoType) => dispatch(updateAction(data));
     /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
     return (
         <div>
@@ -144,7 +139,7 @@ const HomePage = (): JSX.Element => {
                         dataSource={state}
                         renderItem={(item, index) => (
                             <List.Item
-                                className={selectedIndex === index ? 'li_selected' : ''}
+                                className={selectedIndex === index ? style.editItem_select : ''}
                                 key={index}
                                 onClick={() => selectedHandle(index)}
                             >
