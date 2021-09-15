@@ -11,7 +11,8 @@ import style from './style.scss';
 
 /* <------------------------------------ **** Lazy Loading all the pages START **** ------------------------------------ */
 
-const HomePage = React.lazy(() => import(/* webpackChunkName: 'homepage' */ '../Pages/HomePage'));
+// const HomePage = React.lazy(() => import(/* webpackChunkName: 'homepage' */ '../Pages/HomePage'));
+const Todo = React.lazy(() => import(/* webpackChunkName: 'homepage' */ '../Pages/Todo'));
 
 /* <------------------------------------ **** Lazy Loading all the pages END **** ------------------------------------ */
 
@@ -49,7 +50,7 @@ const RootRouter = (): JSX.Element => {
         >
             <Router>
                 <Switch>
-                    <Route path="/" exact component={HomePage} />
+                    <Route path="/" exact component={Todo} />
                 </Switch>
             </Router>
         </Suspense>
