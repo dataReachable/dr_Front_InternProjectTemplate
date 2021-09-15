@@ -1,0 +1,24 @@
+/**
+* @file todoList scss
+* @date 2021-09-15
+* @author 
+* @lastModify  2021-09-15
+*/
+/* <------------------------------------ **** CONSTANT IMPORT START **** ------------------------------------ */
+/** Import all the reference constant after this line */
+@import '../../Constant/breakPoint.scss';
+@import '../../Constant/font.scss';
+@import '../../Constant/color.scss';
+/* <------------------------------------ **** CONSTANT IMPORT END **** ------------------------------------ */
+/* <------------------------------------ **** SECTION1 MIXIN START **** ------------------------------------ */
+/** The demo mixin is ..........*/
+@mixin demo {}
+/* <------------------------------------ **** SECTION1 MIXIN END **** ------------------------------------ */
+/* <--------------------------- * SECTION1 * --------------------------- */
+.todoList {
+    margin: 30px;
+    width: 250px;
+    border: 1px solid #000;
+    padding: 20px 0;
+}
+/* <--------------------------- * SECTION1 * --------------------------- */

@@ -1,0 +1,54 @@
+/**
+* @file todoItem scss
+* @date 2021-09-15
+* @author 朱小姣
+* @lastModify 朱小姣 2021-09-15
+*/
+/* <------------------------------------ **** CONSTANT IMPORT START **** ------------------------------------ */
+/** Import all the reference constant after this line */
+@import '../../Constant/breakPoint.scss';
+@import '../../Constant/font.scss';
+@import '../../Constant/color.scss';
+/* <------------------------------------ **** CONSTANT IMPORT END **** ------------------------------------ */
+/* <------------------------------------ **** SECTION1 MIXIN START **** ------------------------------------ */
+/** The demo mixin is ..........*/
+@mixin demo {}
+/* <------------------------------------ **** SECTION1 MIXIN END **** ------------------------------------ */
+/* <--------------------------- * SECTION1 * --------------------------- */
+* {
+    box-sizing: border-box;
+}
+/* <--------------------------- * SECTION1 * --------------------------- */
+ul {
+    list-style: none;
+    li {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #000;
+    margin: 10px 0;
+    padding: 0 10px;
+    position: relative;
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 148px;
+        height: 28px;
+        border: none;
+        outline: none;
+        padding-left: 10px;
+        color: #000;
+        }
+    }
+    li:hover {
+        cursor: pointer;
+        user-select: none;
+        border: 1px solid skyblue;
+    }
+    .active {
+        background-color: skyblue;
+        color: #fff;
+        border: 1px solid skyblue;
+    }
+}
