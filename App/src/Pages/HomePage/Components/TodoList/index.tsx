@@ -1,54 +1,71 @@
-import React, { useState, useEffect, useRef } from 'react';
+/**
+ * @file TodoList Component
+ * @date 2021-10-27
+ * @author kezezheng
+ * @lastModify kezezheng 2021-10-27
+ */
+/* <------------------------------------ **** DEPENDENCE IMPORT START **** ------------------------------------ */
+/** This section will include all the necessary dependence for this tsx file */
+import React, { FC, useState, useEffect, useRef } from 'react';
 import { RootState } from '../../../../Store/rootReducer';
 import * as actions from '../../../../Store/Todo/actions';
 import { useSelector, useDispatch } from 'react-redux';
-import { Todo } from '../../../../Store/Todo/actions';
-
-const TodoList = (): JSX.Element => {
-    /* <------------------------------------ **** HOOKS START **** ------------------------------------ */
-    // 是否显示修改todo的 输入框
+import { Todo } from '../../../../Store/Todo/actionTypes';
+/* <------------------------------------ **** DEPENDENCE IMPORT END **** ------------------------------------ */
+/* <------------------------------------ **** INTERFACE START **** ------------------------------------ */
+/** This section will include all the interface for this tsx file */
+/* <------------------------------------ **** INTERFACE END **** ------------------------------------ */
+/* <------------------------------------ **** FUNCTION COMPONENT START **** ------------------------------------ */
+const TodoList: FC = (): JSX.Element => {
+    /* <------------------------------------ **** STATE START **** ------------------------------------ */
+    /************* This section will include this component HOOK function *************/
+    // 控制是否显示input编辑框
     const [isInput, setIsInput] = useState(false);
 
-    // useDispatch
     const dispatch = useDispatch();
 
-    // 获取 redux store 中的 state 数据
     const { todos } = useSelector((state: RootState) => state.TodoReducer);
     const { currentTodo } = useSelector((state: RootState) => state.TodoReducer);
 
-    // ref
     const inputRef = useRef<HTMLInputElement>(null);
 
-    // 自动聚焦 input 输入框
+    // 存在input编辑框时自动聚焦
     useEffect(() => {
         if (inputRef.current) {
             inputRef.current.focus();
         }
     });
-    /* <------------------------------------ **** HOOKS END **** ------------------------------------ */
-
-    /* <------------------------------------ **** FUNCTION METHODS START **** ------------------------------------ */
-    // 选择一个 todo 触发
+    /* <------------------------------------ **** STATE END **** ------------------------------------ */
+    /* <------------------------------------ **** PARAMETER START **** ------------------------------------ */
+    /************* This section will include this component parameter *************/
+    /* <------------------------------------ **** PARAMETER END **** ------------------------------------ */
+    /* <------------------------------------ **** FUNCTION START **** ------------------------------------ */
+    /************* This section will include this component general function *************/
+    /**
+     * 选中点击的todo
+     * @param todo 点击选择的todo
+     * @returns 派发selectTodoAction
+     */
     const selectTodo = (todo: Todo) => {
         return () => {
-            dispatch(actions.selectTodo(todo));
+            dispatch(actions.selectTodoAction(todo));
             setIsInput(false);
         };
     };
-
-    // input 输入框 失焦 触发
+    /**
+     * 输入框失焦后 派发editTodoAction
+     */
     const handleBlur = () => {
         if (inputRef.current?.value !== currentTodo?.text) {
             const todo = {
                 id: currentTodo?.id as number,
                 text: inputRef.current?.value as string,
             };
-            dispatch(actions.editTodo(todo));
+            dispatch(actions.editTodoAction(todo));
         }
-
         setIsInput(false);
     };
-    /* <------------------------------------ **** FUNCTION METHODS END **** ------------------------------------ */
+    /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
     return (
         <ul style={{ width: 200 }}>
             {todos.map((todo) => (
@@ -78,5 +95,5 @@ const TodoList = (): JSX.Element => {
         </ul>
     );
 };
-
 export default TodoList;
+/* <------------------------------------ **** FUNCTION COMPONENT END **** ------------------------------------ */

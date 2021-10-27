@@ -1,33 +1,48 @@
-import ActionTypes from './actionTypes';
+/**
+ * @file actions
+ * @date 2021-10-27
+ * @author kezezheng
+ * @lastModify kezezheng 2021-10-27
+ */
 
-/* <------------------------------------ **** INTERFACE START **** ------------------------------------ */
-export interface Action {
-    type: string;
-    payload: Todo;
-}
+import { ActionTypes, Todo, Action } from './actionTypes';
 
-export interface Todo {
-    id: number;
-    text: string;
-}
-/* <------------------------------------ **** INTERFACE END **** ------------------------------------ */
-
+/**
+ * 添加todo的 action creator
+ * @param todo 待添加的todo
+ * @returns {Action} 添加todo的action
+ */
 export const addTodoAction = (todo: Todo): Action => ({
     type: ActionTypes.ADD_TODO,
     payload: todo,
 });
 
-export const removeTodo = (todo: Todo): Action => ({
+/**
+ * 移除todo的 action creator
+ * @param todo 待移除的todo
+ * @returns {Action} 移除todo的action
+ */
+export const removeTodoAction = (todo: Todo): Action => ({
     type: ActionTypes.REMOVE_TODO,
     payload: todo,
 });
 
-export const selectTodo = (todo: Todo): Action => ({
+/**
+ * 选中todo的 action creator
+ * @param todo 待选中的todo
+ * @returns {Action} 选中todo的action
+ */
+export const selectTodoAction = (todo: Todo): Action => ({
     type: ActionTypes.SELECT_TODO,
     payload: todo,
 });
 
-export const editTodo = (todo: Todo): Action => ({
+/**
+ * 编辑todo的 action creator
+ * @param todo 待编辑的todo
+ * @returns {Action} 编辑todo的action
+ */
+export const editTodoAction = (todo: Todo): Action => ({
     type: ActionTypes.EDIT_TODO,
     payload: todo,
 });

@@ -1,10 +1,11 @@
-import { Action, Todo } from './actions';
-import ActionTypes from './actionTypes';
+/**
+ * @file reducer
+ * @date 2021-10-27
+ * @author kezezheng
+ * @lastModify kezezheng 2021-10-27
+ */
 
-export interface State {
-    todos: Todo[]; // todo list 列表
-    currentTodo: Todo | null; // 当前选择的todo
-}
+import { ActionTypes, Action, State } from './actionTypes';
 
 const initState: State = {
     todos: [
