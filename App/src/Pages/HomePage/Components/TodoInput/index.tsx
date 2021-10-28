@@ -53,12 +53,37 @@ const TodoInput: FC = (): JSX.Element => {
             dispatch(actions.removeTodoAction(currentTodo));
         }
     };
+    /**
+     * 延迟1s添加一个todo
+     */
+    const addTodoAsync = () => {
+        // 判断输入的内容不为空时 再进行事件处理
+        if (!(inputValue?.trim() === '')) {
+            const todo: Todo = {
+                id: new Date().getTime(),
+                text: inputValue,
+            };
+            dispatch(actions.addTodoAsyncAction(todo));
+            setInputValue(''); // 添加完todo后清空input输入框
+        }
+    };
+    /**
+     * 延迟1s移除一个todo
+     */
+    const removeTodoAsync = () => {
+        // 存在选中的todo时 再进行移除操作
+        if (currentTodo) {
+            dispatch(actions.removeTodoAsyncAction(currentTodo));
+        }
+    };
     /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
     return (
         <>
             <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
             <button onClick={addTodo}>创建</button>
+            <button onClick={addTodoAsync}>延迟1s创建</button>
             <button onClick={removeTodo}>删除</button>
+            <button onClick={removeTodoAsync}>延迟1s删除</button>
         </>
     );
 };

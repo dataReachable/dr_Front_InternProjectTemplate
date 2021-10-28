@@ -10,6 +10,8 @@ export enum ActionTypes {
     REMOVE_TODO = 'REMOVE_TODO',
     SELECT_TODO = 'SELECT_TODO',
     EDIT_TODO = 'EDIT_TODO',
+    ADD_TODO_ASYNC = 'ADD_TODO_ASYNC',
+    REMOVE_TODO_ASYNC = 'REMOVE_TODO_ASYNC',
 }
 
 /**

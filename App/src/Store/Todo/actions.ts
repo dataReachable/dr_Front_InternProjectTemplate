@@ -46,3 +46,21 @@ export const editTodoAction = (todo: Todo): Action => ({
     type: ActionTypes.EDIT_TODO,
     payload: todo,
 });
+
+/**
+ * 异步添加todo的 action creator
+ * @returns 异步添加todo的 action
+ */
+export const addTodoAsyncAction = (todo: Todo): Action => ({
+    type: ActionTypes.ADD_TODO_ASYNC,
+    payload: todo,
+});
+
+/**
+ * 异步移除todo的 action creator
+ * @returns 异步移除todo的 action
+ */
+export const removeTodoAsyncAction = (todo: Todo): Action => ({
+    type: ActionTypes.REMOVE_TODO_ASYNC,
+    payload: todo,
+});
