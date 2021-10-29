@@ -1,19 +1,19 @@
-
 /**
  * @file sagas.ts
  * @date 2021-10-28
  * @author kezezheng
  * @lastModify kezezheng 2021-10-28
  */
- import * as actions from './actions';
+import * as actions from './actions';
 
- import { delay, put, takeEvery, fork } from 'redux-saga/effects';
- import { ActionTypes, Action } from './actionTypes';
+import { delay, put, takeEvery, fork } from 'redux-saga/effects';
+import { ActionTypes, Action } from './actionTypes';
 
 /**
  * 延迟1s 执行 addTodoAction
+ * @param {Action} action对象
  */
- function* addTodoAsync({ payload: todo }: Action): Generator {
+function* addTodoAsync({ payload: todo }: Action): Generator {
     yield delay(1000);
     yield put(actions.addTodoAction(todo));
 }
@@ -27,6 +27,7 @@ export function* watchAddTodoAsync(): Generator {
 
 /**
  * 延迟1s 执行 removeTodoAction
+ * @param {Action} action对象
  */
 function* removeTodoAsync({ payload: todo }: Action): Generator {
     yield delay(1000);
@@ -43,6 +44,6 @@ export function* watchRemoveTodoAsync(): Generator {
 /**
  *  以非阻塞形式 执行 任务
  */
-const TodoSagas = [fork(watchAddTodoAsync), fork(watchRemoveTodoAsync)];
+const todoSagas = [fork(watchAddTodoAsync), fork(watchRemoveTodoAsync)];
 
-export default TodoSagas;
+export default todoSagas;
