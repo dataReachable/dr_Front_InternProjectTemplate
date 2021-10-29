@@ -6,10 +6,13 @@
  */
 import { all } from 'redux-saga/effects';
 
+import todoSagas from './Todo/sagas';
+
 export default function* rootSaga(): Generator {
     try {
         yield all([
             // this is where the saga combine into the rootSaga
+            ...todoSagas,
         ]);
     } catch (err) {
         // This is where error monitoring should go
