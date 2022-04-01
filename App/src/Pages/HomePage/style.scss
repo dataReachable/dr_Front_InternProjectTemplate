@@ -1,0 +1,16 @@
+/**
+* file: HomePage style file
+* date: 2022-03-29
+* author: Frank
+* lastModify: 张明舟 2022-03-30
+*/
+
+.homePage_wrapper {
+    padding: 1rem;
+    .homePage_list {
+        margin-top: 1rem;
+    }
+    .homePage_list__active {
+        background-color: lightblue;
+    }
+}
