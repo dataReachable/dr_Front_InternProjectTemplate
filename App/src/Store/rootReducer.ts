@@ -7,9 +7,12 @@
 import { combineReducers } from 'redux';
 
 // import demoReducer from './moduleA/reducer';
+import HomePageReducer from './HomePage/reducer';
 
-// combine all the reducer in here
-const rootReducer = combineReducers({});
+// combine all the reducer in here DefaultRootState
+const rootReducer = combineReducers({
+  HomePageReducer
+});
 // export the root reducer state
 export type RootState = ReturnType<typeof rootReducer>;
 export default rootReducer;
