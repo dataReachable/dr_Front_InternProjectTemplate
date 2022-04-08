@@ -37,6 +37,16 @@ const dispatchDelElement = (item: types.ListItemType): types.HomePageActionTypes
     }
 }
 /**
+ * 异步删除元素 action
+ * @param item 当前删除的元素
+ */
+const dispatchDelElementAsync = (item: types.ListItemType): types.HomePageActionTypes => {
+    return {
+        type: types.Action_Type.DEL_ELEMENT_ASYNC,
+        payload: item
+    }
+}
+/**
  * 修改元素 action
  * @param item 当前修改的元素
  */
@@ -51,5 +61,6 @@ export {
     dispatchCreateElement,
     dispatchCreateElementAsync,
     dispatchDelElement,
+    dispatchDelElementAsync,
     dispatchUpdateElement
 }

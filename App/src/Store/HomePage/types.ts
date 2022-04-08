@@ -24,7 +24,8 @@ export enum Action_Type {
     ADD_ELEMENT = 'ADD_ELEMENT',
     DEL_ELEMENT = 'DEL_ELEMENT',
     UPDATE_ELEMENT = 'UPDATE_ELEMENT',
-    ADD_ELEMENT_ASYNC = 'ADD_ELEMENT_ASYNC'
+    ADD_ELEMENT_ASYNC = 'ADD_ELEMENT_ASYNC',
+    DEL_ELEMENT_ASYNC = 'DEL_ELEMENT_ASYNC'
 }
 
 /**
@@ -55,5 +56,12 @@ interface AddAsyncAction {
     type: typeof Action_Type.ADD_ELEMENT_ASYNC,
     payload: ListItemType
 }
+/**
+ * 异步删除元素action
+ */
+interface DelAsyncAction {
+    type: typeof Action_Type.DEL_ELEMENT_ASYNC,
+    payload: ListItemType
+}
 
-export type HomePageActionTypes = AddAction | DelAction | UpdateAction | AddAsyncAction
+export type HomePageActionTypes = AddAction | DelAction | UpdateAction | AddAsyncAction | DelAsyncAction
