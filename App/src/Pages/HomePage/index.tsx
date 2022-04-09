@@ -78,6 +78,11 @@ const HomePage = (): JSX.Element => {
                         renderItem={(item) => (
                             <List.Item
                                 onClick={() => selectItem(item.id)}
+                                style={
+                                    item.id == itemID
+                                        ? { backgroundColor: '#f40', color: 'white' }
+                                        : {}
+                                }
                                 onDoubleClick={() => {
                                     setCurrentEditId(item.id);
                                     setEditValue(item.content);
