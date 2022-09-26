@@ -1,0 +1,54 @@
+.App {
+    width: 35rem;
+    height: 50rem;
+    background-color: #ececec;
+
+    .header {
+        height: 5rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        input {
+            outline: none;
+            border: 0.2rem solid blue;
+            height: 2rem;
+            background-color: #fff;
+        }
+        button {
+            min-height: 2.4rem;
+            width: 5rem;
+            border: 0.2rem solid black;
+            //   background-color: ;
+        }
+    }
+    .main {
+        height: 40rem;
+        width: 30rem;
+        margin: 2.5rem;
+        border: 0.2rem solid black;
+    }
+    .main .main-list .main-item {
+        height: 2.5rem;
+        width: 28rem;
+        margin: 1rem;
+        border: 0.2rem solid blue;
+        cursor: pointer;
+    }
+    .main .main-list .main-input {
+        height: 2.5rem;
+        width: 28rem;
+        margin: 1rem;
+        border: 0.2rem solid blue;
+        line-height: 2.5rem;
+        display: flex;
+        justify-content: center;
+        input {
+            outline: none;
+            border: none;
+            height: 2rem;
+            width: 29rem;
+            // font-size: 16px;
+        }
+    }
+}
