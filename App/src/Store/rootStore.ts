@@ -1,14 +1,16 @@
 /**
  * file: root store
- * date: 2020-08-28
- * author: Frank
- * lastModify: Frank 2020-08-28
+ * @date 2022-09-26
+ * @author tianci
+ * @lastModify tianci 2022-09-26
  */
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './rootReducer';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import rootSaga from './rootSaga';
 import createSagaMiddleware from 'redux-saga';
+
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './rootReducer';
+
+import rootSaga from './rootSaga';
 
 // create sage middleware
 const sagaMiddleware = createSagaMiddleware();

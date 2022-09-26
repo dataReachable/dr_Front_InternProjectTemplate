@@ -5,8 +5,11 @@
  * @lastModify  2020-12-01
  */
 /* <------------------------------------ **** DEPENDENCE IMPORT START **** ------------------------------------ */
+import TodoHeader from './Components/todoHeader';
+import TodoMain from './Components/todoMain';
+import style from './style.scss';
+
 /** This section will include all the necessary dependence for this tsx file */
-import { Row } from 'antd';
 /* <------------------------------------ **** DEPENDENCE IMPORT END **** ------------------------------------ */
 /* <------------------------------------ **** INTERFACE START **** ------------------------------------ */
 /** This section will include all the interface for this tsx file */
@@ -22,7 +25,14 @@ const HomePage = (): JSX.Element => {
     /* <------------------------------------ **** FUNCTION START **** ------------------------------------ */
     /************* This section will include this component general function *************/
     /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
-    return <Row>this is the test project</Row>;
+    return (
+        <div className={style.App}>
+            <TodoHeader />
+            <div className={style.main}>
+                <TodoMain />
+            </div>
+        </div>
+    );
 };
 export default HomePage;
 /* <------------------------------------ **** FUNCTION COMPONENT END **** ------------------------------------ */
